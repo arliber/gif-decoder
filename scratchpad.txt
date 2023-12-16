@@ -1,0 +1,4 @@
+            // Old patch version - wrong
+            // const start = frame.dims.top * 320 + frame.dims.left
+            // const deleteCount = frame.dims.height * frame.dims.width
+            // currentFramePixels = prevFramePixels.toSpliced(start, deleteCount, ...currentFramePixels)
