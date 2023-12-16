@@ -1,7 +1,7 @@
 const fs = require('fs');
 const gifunct = require('gifuct-js')
 
-const GIF_PATH = './gifs/tree.gif';
+const GIF_PATH = './gifs/wave.gif';
 const GIF_SIZE = 320
 const DESIRED_SIZE = 16
 
