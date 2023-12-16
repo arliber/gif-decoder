@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Canvas Example</title>
+    <title>Canvas Frame Player</title>
 </head>
 <body>
 <canvas id="myCanvas" width="320" height="320"></canvas>
@@ -4402,18 +4402,15 @@
     ]
 
     // Get the canvas element
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
 
     function drawFrame(ctx, pixels) {
-        for (var i = 0; i < pixels.length; i++) {
-            var x = i % (WIDTH/PIXEL_SIZE) * PIXEL_SIZE; // Calculate x position
-            var y = Math.floor(i / (WIDTH/PIXEL_SIZE)) * PIXEL_SIZE; // Calculate y position
+        for (let i = 0; i < pixels.length; i++) {
+            const x = i % (WIDTH/PIXEL_SIZE) * PIXEL_SIZE; // Calculate x position
+            const y = Math.floor(i / (WIDTH/PIXEL_SIZE)) * PIXEL_SIZE; // Calculate y position
             ctx.fillStyle = pixels[i]
             ctx.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE); // Draw rectangle
-            // ctx.fillStyle = "red"; // Text color
-            // ctx.font = "9px Arial"; // Font properties
-            // ctx.fillText(`(${i % (WIDTH/PIXEL_SIZE)}, ${Math.floor(i / (WIDTH/PIXEL_SIZE))})`, x, y);
         }
     }
 
@@ -4435,7 +4432,6 @@
     // Loop through the hex color values array and draw rectangles with each color
     drawFrames(ctx, 0, colors)
     // drawFrame(ctx, colors[1])
-
 </script>
 </body>
 </html>
