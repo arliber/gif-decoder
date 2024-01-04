@@ -1,7 +1,7 @@
 const fs = require('fs');
 const gifunct = require('gifuct-js')
 
-const GIF_PATH = './gifs/wave.gif';
+const GIF_PATH = './gifs/m4.gif';
 const GIF_SIZE = 320
 const DESIRED_SIZE = 16
 
@@ -61,6 +61,28 @@ fs.readFile(GIF_PATH, (err, data) => {
         const color = parseInt(Array.from(uintcolor, byte => byte.toString(16).padStart(2, '0')).join('').toUpperCase(), 16)
         return color
     })
+
+    function compressArray(array) {
+        let compressedArray = [];
+        let count = 1;
+
+        for (let i = 1; i < array.length; i++) {
+            if (array[i] === array[i - 1]) {
+                count++;
+            } else {
+                compressedArray.push(array[i - 1], count);
+                count = 1;
+            }
+        }
+
+        // Push the last element and its count
+        compressedArray.push(array[array.length - 1], count);
+
+        return compressedArray;
+    }
+
+    const compressedFrames = minifiedFrames.map(frame => compressArray(frame))
+
     console.log('COLORS', JSON.stringify(colors))
-    console.log('FRAMES', JSON.stringify(minifiedFrames))
+    console.log('FRAMES', JSON.stringify(compressedFrames))
 });
